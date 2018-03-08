@@ -1,0 +1,26 @@
+spring.datasource:
+  driverClassName: org.h2.Driver
+  url: jdbc:h2:mem:campsite-booking-database;DB_CLOSE_ON_EXIT=false
+spring:
+  profiles: test
+  h2:
+    console:
+      enabled: true
+spring.jpa:
+    hibernate.ddl-auto: create-drop
+          
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.data: DEBUG
+    com.sstjerne.campsite.booking.api: DEBUG
+#  pattern:
+#    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+#    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: /tmp/application.log
+  
+server.tomcat.max-threads : 10
+
+
+campsite.default.id: 1
+ 

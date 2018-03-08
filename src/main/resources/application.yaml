@@ -1,0 +1,36 @@
+server.port: 8080
+spring.datasource:
+  url: jdbc:postgresql://campsite-booking-database/${POSTGRES_DB}
+  username: ${POSTGRES_USER}
+  password: ${POSTGRES_PASSWORD}
+spring.jpa:
+  hibernate.ddl-auto: update
+  hibernate.show_sql: true
+  properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+campsite-booking-api:
+  allowed-origins: http://localhost:9000
+
+logging:
+  level:
+    org.springframework.web: ERROR
+    org.springframework.data: ERROR
+    com.sstjerne.campsite.booking.api: DEBUG
+  file: /tmp/application.log  
+
+spring:
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+        
+spring.jackson:
+  date-format: yyyy-MM-dd
+
+campsite.default.id: 1
